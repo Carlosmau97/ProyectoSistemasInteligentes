@@ -1,0 +1,27 @@
+html{
+  box-sizing: border-box;
+}
+
+*,*:before,*:after{
+  box-sizing: inherit;
+}
+
+body{
+  background-color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+}
+
+div.fondo{
+  background: url(../img/fondo.png) center;
+  height: 1250px;
+  width: 1250px;
+}
+
+div.nodovacio{
+  position: absolute;
+  height: 30px;
+  width: 50px;
+  bottom: -95px;
+  left: 350px;
+  background-color: red;
+}
