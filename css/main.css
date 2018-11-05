@@ -17,11 +17,22 @@ div.fondo{
   width: 1250px;
 }
 
-div.nodovacio{
+div.nodo{
   position: absolute;
-  height: 23px;
-  width: 33px;
-  top: 1073px;
-  left: 560px;
+  height: 15px;
+  width: 15px;
   background-color: red;
+  border-radius: 50%;
+}
+
+div.nodo#nodo01{
+  position: absolute;
+  top: 25px;
+  left: 50px;
+}
+
+div.nodo#nodo02{
+  position: absolute;
+  top: 50px;
+  left: 50px;
 }
