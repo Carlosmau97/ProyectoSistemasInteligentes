@@ -19,9 +19,9 @@ div.fondo{
 
 div.nodovacio{
   position: absolute;
-  height: 30px;
-  width: 50px;
-  bottom: -95px;
-  left: 350px;
+  height: 23px;
+  width: 33px;
+  top: 1073px;
+  left: 560px;
   background-color: red;
 }
