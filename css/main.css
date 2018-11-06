@@ -1,5 +1,7 @@
 html{
   box-sizing: border-box;
+  padding: 0;
+  border: 0;
 }
 
 *,*:before,*:after{
@@ -7,9 +9,44 @@ html{
 }
 
 body{
+  padding: 0px;
+  border: 0px;
   background-color: #ffffff;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Arial', sans-serif;
 }
+
+h2{
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.4em;
+  text-transform: uppercase;
+  text-align: center;
+  color: orange;
+}
+
+h2#D1{
+  position: absolute;
+  top: 420px;
+  left: 180px;
+}
+
+h2#D2{
+  position: absolute;
+  top: 1000px;
+  left: 800px;
+}
+
+h2#D3{
+  position: absolute;
+  top: 830px;
+  left: 1050px;
+}
+
+h2#D4{
+  position: absolute;
+  top: -20px;
+  left: 900px;
+}
+
 
 div.fondo{
   background: url(../img/fondo.png) center;
@@ -17,7 +54,18 @@ div.fondo{
   width: 1250px;
 }
 
+div.menu{
+  width: 100%;
+  height: 25px;
+  background-color: red;
+}
+
+/*De aqui empiezan los nodos*/
+
 div.nodo{
+  font-family: 'Arial', sans-serif;
+  font-size:10px;
+  font-weight: normal;
   position: absolute;
   height: 15px;
   width: 15px;
@@ -25,13 +73,13 @@ div.nodo{
   border-radius: 50%;
 }
 
-div.nodo#nodo01{
+div.nodo#D1204{
   position: absolute;
   top: 25px;
   left: 50px;
 }
 
-div.nodo#nodo02{
+div.nodo#D1P1{
   position: absolute;
   top: 50px;
   left: 50px;
