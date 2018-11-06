@@ -1,7 +1,10 @@
 html{
   box-sizing: border-box;
+}
+
+*{
   padding: 0;
-  border: 0;
+  margin: 0;
 }
 
 *,*:before,*:after{
@@ -10,7 +13,7 @@ html{
 
 body{
   padding: 0px;
-  border: 0px;
+  margin:0px;
   background-color: #ffffff;
   font-family: 'Arial', sans-serif;
 }
@@ -25,7 +28,7 @@ h2{
 
 h2#D1{
   position: absolute;
-  top: 420px;
+  top: 480px;
   left: 180px;
 }
 
@@ -37,26 +40,28 @@ h2#D2{
 
 h2#D3{
   position: absolute;
-  top: 830px;
+  top: 880px;
   left: 1050px;
 }
 
 h2#D4{
   position: absolute;
-  top: -20px;
+  top: 70px;
   left: 900px;
 }
 
 
 div.fondo{
+  position:static;
   background: url(../img/fondo.png) center;
   height: 1250px;
   width: 1250px;
 }
 
 div.menu{
+  position: fixed;
   width: 100%;
-  height: 25px;
+  height: 45px;
   background-color: red;
 }
 
