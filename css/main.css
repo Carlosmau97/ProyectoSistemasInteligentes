@@ -18,6 +18,13 @@ body{
   font-family: 'Arial', sans-serif;
 }
 
+div.fondo{
+  position:static;
+  background: url(../img/fondo.png) center;
+  height: 1250px;
+  width: 1250px
+}
+
 h2{
   font-family: 'Oswald', sans-serif;
   font-size: 2.4em;
@@ -50,13 +57,6 @@ h2#D4{
   left: 900px;
 }
 
-
-div.fondo{
-  position:static;
-  background: url(../img/fondo.png) center;
-  height: 1250px;
-  width: 1250px;
-}
 
 div.menu{
   position: fixed;
