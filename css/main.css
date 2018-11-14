@@ -89,9 +89,13 @@ div.nodov{
   border-radius: 50%;
 }
 
-/*D1*/
+/* Edificio D1*/
 
-/*Nodos Puerta*/
+div.nodop#D1Sanitario{
+  position: absolute;
+  top: 640px;
+  left: 240px;
+}
 
 div.nodop#D1204{
   position: absolute;
@@ -140,14 +144,6 @@ div.nodop#D1211{
   top: 685px;
   left: 345px;
 }
-
-div.nodop#D1Sanitario{
-  position: absolute;
-  top: 640px;
-  left: 240px;
-}
-
-/*Nodos Vestibulos*/
 
 div.nodov#D1V0{
   position: absolute;
@@ -213,4 +209,140 @@ div.nodov#D1V10{
   position: absolute;
   top: 778px;
   left: 315px;
+}
+
+/* Edificio D2 */
+
+div.nodop#D2Sanitario{
+  position: absolute;
+  top: 880px;
+  left: 505px;
+}
+
+div.nodop#D2205{
+  position: absolute;
+  top: 855px;
+  left: 658px;
+}
+
+div.nodop#D2206{
+  position: absolute;
+  top: 880px;
+  left: 585px;
+}
+
+div.nodop#D2207{
+  position: absolute;
+  top: 935px;
+  left: 585px;
+}
+
+div.nodop#D2208{
+  position: absolute;
+  top: 1035px;
+  left: 585px;
+}
+
+div.nodop#D2209{
+  position: absolute;
+  top: 1089px;
+  left: 574px;
+}
+
+div.nodop#D2210{
+  position: absolute;
+  top: 1089px;
+  left: 555px;
+}
+
+div.nodop#D2211{
+  position: absolute;
+  top: 1067px;
+  left: 539px;
+}
+
+div.nodop#D2212{
+  position: absolute;
+  top: 1047px;
+  left: 539px;
+}
+
+div.nodov#D2V0{
+  position: absolute;
+  top: 1067px;
+  left: 562px;
+}
+
+div.nodov#D2V1{
+  position: absolute;
+  top: 1040px;
+  left: 562px;
+}
+
+div.nodov#D2V2{
+  position: absolute;
+  top: 985px;
+  left: 562px;
+}
+
+div.nodov#D2V3{
+  position: absolute;
+  top: 935px;
+  left: 562px;
+}
+
+div.nodov#D2V4{
+  position: absolute;
+  top: 880px;
+  left: 562px;
+}
+
+div.nodov#D2V5{
+  position: absolute;
+  top: 855px;
+  left: 562px;
+}
+
+div.nodov#D2V6{
+  position: absolute;
+  top: 855px;
+  left: 600px;
+}
+
+div.nodov#D2V7{
+  position: absolute;
+  top: 855px;
+  left: 505px;
+}
+
+div.nodov#D2V8{
+  position: absolute;
+  top: 855px;
+  left: 440px;
+}
+
+div.nodov#D2V9{
+  position: absolute;
+  top: 855px;
+  left: 366px;
+}
+
+/* Edificio D3 */
+
+div.nodop#D3Sanitario{
+  position: absolute;
+  top: 685px;
+  left: 885px;
+}
+
+div.nodop#D3201{
+  position: absolute;
+  top: 415px;
+  left: 765px;
+}
+
+div.nodop#D3202{
+  position: absolute;
+  top: 445px;
+  left: 825px;
 }
