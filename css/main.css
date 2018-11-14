@@ -19,7 +19,7 @@ body{
 }
 
 div.fondo{
-  position:static;
+  position:absolute;
   background: url(../img/fondo.png) center;
   height: 1250px;
   width: 1250px
@@ -71,11 +71,12 @@ div.nodop{
   font-family: 'Arial', sans-serif;
   font-size:10px;
   font-weight: normal;
-  position: absolute;
+  position: fixed;
   height: 15px;
   width: 15px;
   background-color: red;
   border-radius: 50%;
+  position: fixed;
 }
 
 div.nodov{
