@@ -74,7 +74,7 @@ div.nodop{
   position: absolute;
   height: 15px;
   width: 15px;
-  background-color: black;
+  background-color: red;
   border-radius: 50%;
 }
 
@@ -92,72 +92,125 @@ div.nodov{
 /*D1*/
 
 /*Nodos Puerta*/
-div.nodo#D1201{
+
+div.nodop#D1204{
   position: absolute;
-  top: 25px;
-  left: 50px;
+  top: 640px;
+  left: 170px;
 }
 
-div.nodo#D1203{
+div.nodop#D1205{
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 665px;
+  left: 135px;
 }
 
-div.nodo#D1204{
+div.nodop#D1206{
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 620px;
+  left: 120px;
 }
 
-div.nodo#D1205{
+div.nodop#D1207{
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 595px;
+  left: 192px;
 }
 
-div.nodo#D1206{
+div.nodop#D1208{
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 595px;
+  left: 213px;
 }
 
-div.nodo#D1207{
+div.nodop#D1209{
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 595px;
+  left: 373px;
 }
 
-div.nodo#D1208{
+div.nodop#D1210{
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 778px;
+  left: 265px;
 }
 
-div.nodo#D1209{
+div.nodop#D1211{
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 685px;
+  left: 345px;
 }
 
-div.nodo#D1210{
+div.nodop#D1Sanitario{
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 640px;
+  left: 240px;
 }
-
-div.nodo#D1211{
-  position: absolute;
-  top: 50px;
-  left: 50px;
-}
-
-div.nodo#D1212{
-  position: absolute;
-  top: 50px;
-  left: 50px;
-}
-
-
 
 /*Nodos Vestibulos*/
+
+div.nodov#D1V0{
+  position: absolute;
+  top: 618px;
+  left: 148px;
+}
+
+div.nodov#D1V1{
+  position: absolute;
+  top: 618px;
+  left: 203px;
+}
+
+div.nodov#D1V2{
+  position: absolute;
+  top: 618px;
+  left: 240px;
+}
+
+div.nodov#D1V3{
+  position: absolute;
+  top: 618px;
+  left: 283px;
+}
+
+div.nodov#D1V4{
+  position: absolute;
+  top: 618px;
+  left: 325px;
+}
+
+div.nodov#D1V5{
+  position: absolute;
+  top: 618px;
+  left: 366px;
+}
+
+div.nodov#D1V6{
+  position: absolute;
+  top: 650px;
+  left: 366px;
+}
+
+div.nodov#D1V7{
+  position: absolute;
+  top: 685px;
+  left: 366px;
+}
+
+div.nodov#D1V8{
+  position: absolute;
+  top: 730px;
+  left: 366px;
+}
+
+div.nodov#D1V9{
+  position: absolute;
+  top: 778px;
+  left: 366px;
+}
+
+div.nodov#D1V10{
+  position: absolute;
+  top: 778px;
+  left: 315px;
+}
