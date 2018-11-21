@@ -212,22 +212,22 @@ class Tree {
   }
 }
 
-var t = new Tree()
-var arr = [5,2,3,-4,12,9,21,19,25]
+var t = new Tree();
+var arr = [5,2,3,-4,12,9,21,19,25];
 
 for (var i = 0; i < arr.length; i++) {
   t.addRecursive(arr[i])
 }
 
-t.inOrder()
-console.log()
-t.preOrder()
-console.log()
-t.postOrder()
-console.log()
-console.log(t.find(12))
-console.log(t.findRecursive(12))
-console.log(t.find(4))
-t.delete(12)
-console.log()
-t.print()
+t.inOrder();
+console.log();
+t.preOrder();
+console.log();
+t.postOrder();
+console.log();
+console.log(t.find(12));
+console.log(t.findRecursive(12));
+console.log(t.find(4));
+t.delete(12);
+console.log();
+t.print();
