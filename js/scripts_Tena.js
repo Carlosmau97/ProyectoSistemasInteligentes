@@ -8,6 +8,9 @@ class Node {
   }
 }
 
+/*ASI SE AHCE UN NODO */
+let nodoPincheTena = new Nodo();
+
 class Tree {
   constructor () {
     this.root = null
