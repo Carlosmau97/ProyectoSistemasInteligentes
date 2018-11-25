@@ -143,7 +143,7 @@ bfs(startingNode)
 
 
 var g = new Graph(6);
-var vertices = [ 'D1Sanitario', 'D1204', 'C', 'D', 'E', 'F' ];
+var vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ];
 
 // adding vertices
 for (var i = 0; i < vertices.length; i++) {
@@ -151,10 +151,10 @@ for (var i = 0; i < vertices.length; i++) {
 }
 
 // adding edges
-g.addEdge('D1Sanitario', 'D1204');
-g.addEdge('D1Sanitario', 'D');
-g.addEdge('D1Sanitario', 'E');
-g.addEdge('D1204', 'C');
+g.addEdge('A', 'B');
+g.addEdge('A', 'D');
+g.addEdge('A', 'E');
+g.addEdge('B', 'C');
 g.addEdge('D', 'E');
 g.addEdge('E', 'F');
 g.addEdge('E', 'C');
