@@ -229,7 +229,7 @@ g.addEdge('D2V2', 'D2V3');
 g.addEdge('D2V3', 'D2V4');
 g.addEdge('D2V4', 'D2V5');
 g.addEdge('D2V5', 'D2V6');
-g.addEdge('D2V6', 'D2V7');
+g.addEdge('D2V7', 'D2V5');
 g.addEdge('D2V7', 'D2V8');
 g.addEdge('D2V8', 'D2V9');
 
