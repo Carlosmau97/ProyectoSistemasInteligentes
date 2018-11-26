@@ -99,9 +99,8 @@ for (var i of get_keys)
 }
 
 // function to performs BFS
-bfs(startingNode)
+bfs(startingNode, finnishNode)
 {
-
     // create a visited array
     var visited = [];
     for (var i = 0; i < this.noOfVertices; i++)
@@ -115,7 +114,7 @@ bfs(startingNode)
     q.enqueue(startingNode);
 
     // loop until queue is element
-    while (!q.isEmpty()) {
+    while (!q.isEmpty() && getQueueElement!=finnishNode){
         // get the element from the queue
         var getQueueElement = q.dequeue();
 
@@ -125,42 +124,110 @@ bfs(startingNode)
         // get the adjacent list for current vertex
         var get_List = this.AdjList.get(getQueueElement);
 
+
         // loop through the list and add the elemnet to the
         // queue if it is not processed yet
         for (var i in get_List) {
             var neigh = get_List[i];
+            var visitado=document.getElementById(neigh);
 
             if (!visited[neigh]) {
                 visited[neigh] = true;
                 q.enqueue(neigh);
+                visitado.style.background="blue";
             }
+            else{
+              visitado.style.background='green';
+            }
+
+            if(neigh==finnishNode || neigh==startingNode){
+              visitado.style.background='purple'
+            }
+
+        }
+    }
+}
+dfs(startingNode, finnishNode)
+{
+
+    var visited = [];
+    for (var i = 0; i < this.noOfVertices; i++)
+        visited[i] = false;
+
+    this.DFSUtil(startingNode, visited, finnishNode);
+}
+
+// Recursive function which process and explore
+// all the adjacent vertex of the vertex with which it is called
+DFSUtil(vert, visited, finnishNode)
+{
+    if(vert==finnishNode){return 0;}
+
+    visited[vert] = true;
+    console.log(vert);
+
+    var get_neighbours = this.AdjList.get(vert);
+
+    for (var i in get_neighbours) {
+        var get_elem = get_neighbours[i];
+        if (!visited[get_elem]){
+            this.DFSUtil(get_elem, visited,finnishNode);
         }
     }
 }
 
-
 }   //FIN DE LA CLASE
 
 
-var g = new Graph(6);
-var vertices = [ 'D1Sanitario', 'D1204', 'C', 'D', 'E', 'F' ];
+
+var g = new Graph(20);
+var vertices = [ 'D1S', 'D1204', 'D1205',
+'D1206', 'D1207', 'D1208','D1209','D1210','D1211',
+'D1V0','D1V1','D1V2','D1V3','D1V4','D1V5','D1V6',
+'D1V7','D1V8','D1V9','D1V10'];
 
 // adding vertices
 for (var i = 0; i < vertices.length; i++) {
     g.addVertex(vertices[i]);
 }
 
-// adding edges
-g.addEdge('D1Sanitario', 'D1204');
-g.addEdge('D1Sanitario', 'D');
-g.addEdge('D1Sanitario', 'E');
-g.addEdge('D1204', 'C');
-g.addEdge('D', 'E');
-g.addEdge('E', 'F');
-g.addEdge('E', 'C');
-g.addEdge('C', 'F');
+// D1
+g.addEdge('D1S', 'D1V2');
+g.addEdge('D1V2', 'D1V1');
+g.addEdge('D1V1', 'D1208');
+g.addEdge('D1V1', 'D1207');
+g.addEdge('D1V1', 'D1V0');
+g.addEdge('D1V0', 'D1206');
+g.addEdge('D1V0', 'D1205');
+g.addEdge('D1V0', 'D1204');
+g.addEdge('D1V2', 'D1V3');
+g.addEdge('D1V3', 'D1V4');
+g.addEdge('D1V4', 'D1V5');
+g.addEdge('D1V5', 'D1209');
+g.addEdge('D1V5', 'D1V6');
+g.addEdge('D1V6', 'D1V7');
+g.addEdge('D1V7', 'D1211');
+g.addEdge('D1V7', 'D1V8');
+g.addEdge('D1V8', 'D1V9');
+g.addEdge('D1V9', 'D1V10');
+g.addEdge('D1V10', 'D1210');
 
 g.printGraph();
 
+/*Seleccionar inicio y fin*/
+
+function anchura(){
+var nodoSelect=document.getElementById("first").innerHTML;
+var nodoSelect2=document.getElementById("last").innerHTML;
+
 console.log("BFS");
-g.bfs('A');
+g.bfs(nodoSelect,nodoSelect2);
+}
+
+function profundidad(){
+var nodoSelect=document.getElementById("first").innerHTML;
+var nodoSelect2=document.getElementById("last").innerHTML;
+
+console.log("DFS");
+g.dfs(nodoSelect,nodoSelect2);
+}

@@ -25,19 +25,6 @@ div.fondo{
   width: 1250px
 }
 
-.Input-text {
-  border: 2px solid #fe4918;
-  border-radius: 4px;
-  width: 250px;
-  height: 40px;
-  margin-top: 5px;
-  margin-left: 60px;
-}
-
-.Input-text:hover{
-  border: 2px solid #353535;
-}
-
 
 div.menu{
   position: fixed;
@@ -46,11 +33,41 @@ div.menu{
   background-color: #353535;
 }
 
+div.menu p#first{
+  padding:11px 40px;
+  margin-left: 30px;
+  color: #353535;
+  background: white;
+  cursor: auto;
+  text-align: center;
+}
+
+div.menu p#last{
+  padding:11px 40px;
+  color: #353535;
+  background: white;
+  cursor: auto;
+  text-align: center;
+}
+
+div.menu p#reset{
+  color: white;
+  background: gray;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+div.menu p#reset:hover{
+  color: gray;
+  background: white;
+  cursor: pointer;
+}
+
 div.menu p{
 background-color:#353535 ;
 padding:11px 25px;
 margin-top: 3px;
-margin-right: 100px;
+margin-right: 50px;
 float: right;
 color:#fe4918;
 text-transform: uppercase;
@@ -96,20 +113,20 @@ div.nodov{
 }
 
 div.nodov:hover{
-  background-color: green;
+  background-color: purple;
   height: 18px;
   width: 18px;
 }
 
 div.nodop:hover{
-  background-color: green;
+  background-color: purple;
   height: 18px;
   width: 18px;
 }
 
 /* Edificio D1*/
 
-div.nodop#D1Sanitario{
+div.nodop#D1S{
   position: absolute;
   top: 640px;
   left: 240px;
@@ -231,7 +248,7 @@ div.nodov#D1V10{
 
 /* Edificio D2 */
 
-div.nodop#D2Sanitario{
+div.nodop#D2S{
   position: absolute;
   top: 880px;
   left: 505px;
@@ -347,7 +364,7 @@ div.nodov#D2V9{
 
 /* Edificio D3 */
 
-div.nodop#D3Sanitario{
+div.nodop#D3S{
   position: absolute;
   top: 685px;
   left: 885px;
@@ -489,7 +506,7 @@ div.nodov#D3V9{
 
 /* Edificio D4 */
 
-div.nodop#D4Sanitario{
+div.nodop#D4S{
   position: absolute;
   top: 423px;
   left: 546px;
