@@ -226,7 +226,6 @@ g.addEdge('D1V6', 'P1');
 g.addEdge('P1', 'P2');
 g.addEdge('P1', 'P4');
 g.addEdge('P2','D2V6');
-g.addEdge('P2','P3');
 g.addEdge('P3','D3V5');
 g.addEdge('P3', 'P4');
 g.addEdge('P4', 'D4V8');
