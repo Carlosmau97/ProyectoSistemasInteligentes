@@ -124,6 +124,31 @@ div.nodop:hover{
   width: 18px;
 }
 
+/* PASILLOS */
+div.nodop#P1{
+  position: absolute;
+  top: 650px;
+  left: 480px;
+}
+
+div.nodop#P2{
+  position: absolute;
+  top: 760px;
+  left: 600px;
+}
+
+div.nodop#P3{
+  position: absolute;
+  top: 650px;
+  left: 720px;
+}
+
+div.nodop#P4{
+  position: absolute;
+  top: 550px;
+  left: 600px;
+}
+
 /* Edificio D1*/
 
 div.nodop#D1S{
