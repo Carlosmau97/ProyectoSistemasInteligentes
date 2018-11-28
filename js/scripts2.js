@@ -157,28 +157,143 @@ dfs(startingNode, finnishNode)
         visited[i] = false;
 
     this.DFSUtil(startingNode, visited, finnishNode,startingNode);
+
+
 }
 
 // Recursive function which process and explore
 // all the adjacent vertex of the vertex with which it is called
 DFSUtil(vert, visited, finnishNode,startingNode)
 {
-  if(vert==finnishNode){return 0;}
-  visited[vert] = true;
-  console.log(vert);
+    visited[vert] = true;
+    console.log(vert);
+    var visitado=document.getElementById(vert);
 
-    var get_neighbours = this.AdjList.get(vert);
+      var get_neighbours = this.AdjList.get(vert);
 
-    for (var i in get_neighbours) {
-        var get_elem = get_neighbours[i];
-        if (!visited[get_elem]){
-            this.DFSUtil(get_elem, visited,finnishNode,startingNode);
+      for (var i in get_neighbours) {
+          var get_elem = get_neighbours[i];
+          if (!visited[get_elem] && get_elem!=finnishNode){
+              this.DFSUtil(get_elem, visited,finnishNode,startingNode);
+          }
+          else{
+            visitado.style.background='blue';
+
+            if(get_elem==finnishNode || get_elem==startingNode){
+              visitado.style.background='purple';
+            }
+
+            return 0;
+          }
         }
-    }
+}
+
+
+pem(startingNode, finnishNode){
+  // create a visited array
+  var visited = [];
+  var Distancia =[];
+  var DistanciaT=0;
+  for (var i = 0; i < this.noOfVertices; i++)
+    visited[i] = false;
+
+
+  // Create an object for queue
+  var q = new Queue();
+
+  // add the starting node to the queue
+  visited[startingNode] = true;
+  q.enqueue(startingNode);
+
+//Distancia Inicial
+var topStarting = parseInt(getCssProperty(startingNode, "top"), 10);
+var leftStarting= parseInt(getCssProperty(startingNode, "left"), 10);
+var topFinnish  = parseInt(getCssProperty(finnishNode, "top"), 10);
+var leftFinnish = parseInt(getCssProperty(finnishNode, "left"), 10);
+var ax = leftStarting;
+var ay = topStarting;
+var bx = leftFinnish;
+var by = topFinnish;
+var comp_horizontal = (bx-ax);
+var comp_vertical = (by-ay);
+comp_horizontal = comp_horizontal * comp_horizontal;
+comp_vertical = comp_vertical * comp_vertical;
+Distancia[neigh] = Math.sqrt(comp_horizontal + comp_vertical);
+DistanciaT=Distancia[neigh];
+console.log("DistanciaT:",DistanciaT);
+
+
+  // loop until queue is element
+  while (!q.isEmpty()){
+
+      // get the element from the queue
+      var getQueueElement = q.dequeue();
+
+      // passing the current vertex to callback funtion
+      //console.log(getQueueElement);
+
+      // get the adjacent list for current vertex
+      var get_List = this.AdjList.get(getQueueElement);
+
+      // loop through the list and add the elemnet to the
+      // queue if it is not processed yet
+
+
+      for (var i in get_List) {
+        if(neigh!=finnishNode){
+          var neigh = get_List[i];
+          var visitado=document.getElementById(neigh);
+          var top = parseInt(getCssProperty(neigh, "top"), 10);
+          var left= parseInt(getCssProperty(neigh, "left"), 10);
+
+          if (!visited[neigh]) {
+              visited[neigh] = true;
+              q.enqueue(neigh);
+              //console.log("Reccorrido:",neigh);
+              //console.log("X:",left,'Y:',top);
+            //  visitado.style.background='blue';
+
+                var ax = left;
+                var ay = top;
+                var bx = leftFinnish;
+                var by = topFinnish;
+
+                var comp_horizontal = (bx-ax);
+                var comp_vertical = (by-ay);
+                comp_horizontal = comp_horizontal * comp_horizontal;
+                comp_vertical = comp_vertical * comp_vertical;
+                Distancia[neigh] = Math.sqrt(comp_horizontal + comp_vertical);
+                console.log("Final",' - ', neigh,':',Distancia[neigh]);
+
+                if(DistanciaT>Distancia[neigh]){
+                    DistanciaT=Distancia[neigh];
+                    console.log("DistanciaT:",DistanciaT);
+                    visitado.style.background='green';
+                }
+
+
+
+              }
+
+          if(neigh==finnishNode || neigh==startingNode){
+            visitado.style.background='purple';
+          }
+
+        }
+
+      }
+  }
+
+
+
 }
 
 }   //FIN DE LA CLASE
 
+function getCssProperty(elmId, property){
+   var elem = document.getElementById(elmId);
+   return window.getComputedStyle(elem,null).getPropertyValue(property);
+}
 
 
 var g = new Graph(20);
@@ -209,7 +324,7 @@ for (var i = 0; i < vertices.length; i++) {
     g.addVertex(vertices[i]);
 }
 
- Conexion Pasillos
+//Conexion Pasillos
 g.addEdge('D1V6', 'P1');
 g.addEdge('P1', 'P2');
 g.addEdge('P1', 'P4');
@@ -332,4 +447,12 @@ var nodoSelect2=document.getElementById("last").innerHTML;
 
 console.log("DFS");
 g.dfs(nodoSelect,nodoSelect2);
+}
+
+function primeromejor(){
+  var nodoSelect=document.getElementById("first").innerHTML;
+  var nodoSelect2=document.getElementById("last").innerHTML;
+
+  console.log("primero el mejor");
+  g.pem(nodoSelect,nodoSelect2);
 }

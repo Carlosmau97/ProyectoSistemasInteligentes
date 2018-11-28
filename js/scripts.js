@@ -189,6 +189,54 @@ DFSUtil(vert, visited, finnishNode,startingNode)
       }
 }
 
+pem(startingNode, finnishNode){
+  // create a visited array
+  var visited = [];
+  for (var i = 0; i < this.noOfVertices; i++)
+      visited[i] = false;
+
+  // Create an object for queue
+  var q = new Queue();
+
+  // add the starting node to the queue
+  visited[startingNode] = true;
+  q.enqueue(startingNode);
+
+  // loop until queue is element
+  while (!q.isEmpty()){
+      // get the element from the queue
+      var getQueueElement = q.dequeue();
+
+      // passing the current vertex to callback funtion
+      //console.log(getQueueElement);
+
+      // get the adjacent list for current vertex
+      var get_List = this.AdjList.get(getQueueElement);
+
+      // loop through the list and add the elemnet to the
+      // queue if it is not processed yet
+      for (var i in get_List) {
+          var neigh = get_List[i];
+          var visitado=document.getElementById(neigh);
+
+          if (!visited[neigh]) {
+              visited[neigh] = true;
+              q.enqueue(neigh);
+              console.log("Reccorrido:",neigh);
+              visitado.style.background='blue';
+          }
+
+
+          if(neigh==finnishNode || neigh==startingNode){
+            visitado.style.background='purple';
+          }
+
+          if(neigh==finnishNode){return 0;}
+
+      }
+  }
+}
+
 }   //FIN DE LA CLASE
 
 
@@ -343,4 +391,12 @@ var nodoSelect2=document.getElementById("last").innerHTML;
 
 console.log("DFS");
 g.dfs(nodoSelect,nodoSelect2);
+}
+
+function primeromejor(){
+  var nodoSelect=document.getElementById("first").innerHTML;
+  var nodoSelect2=document.getElementById("last").innerHTML;
+
+  console.log("primero el mejor");
+  g.pem(nodoSelect,nodoSelect2);
 }
