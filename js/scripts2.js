@@ -222,7 +222,6 @@ Distancia[neigh] = Math.sqrt(comp_horizontal + comp_vertical);
 DistanciaT=Distancia[neigh];
 console.log("DistanciaT:",DistanciaT);
 
-
   // loop until queue is element
   while (!q.isEmpty()){
 
@@ -248,7 +247,9 @@ console.log("DistanciaT:",DistanciaT);
 
           if (!visited[neigh]) {
               visited[neigh] = true;
+
               q.enqueue(neigh);
+
               //console.log("Reccorrido:",neigh);
               //console.log("X:",left,'Y:',top);
             //  visitado.style.background='blue';
@@ -270,8 +271,6 @@ console.log("DistanciaT:",DistanciaT);
                     console.log("DistanciaT:",DistanciaT);
                     visitado.style.background='green';
                 }
-
-
 
               }
 
@@ -428,6 +427,9 @@ g.addEdge('D4V1','D4V0');
 g.addEdge('D4V0','D4213');
 g.addEdge('D4V0','D4209');
 g.addEdge('D4V0','D4212');
+g.addEdge('D4V2','D4V0');// agregue este
+g.addEdge('D4V3','D4V5');// agregue este
+
 
 g.printGraph();
 

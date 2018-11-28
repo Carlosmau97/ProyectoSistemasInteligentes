@@ -204,6 +204,7 @@ pem(startingNode, finnishNode){
 
   // loop until queue is element
   while (!q.isEmpty()){
+
       // get the element from the queue
       var getQueueElement = q.dequeue();
 
@@ -218,7 +219,6 @@ pem(startingNode, finnishNode){
       for (var i in get_List) {
           var neigh = get_List[i];
           var visitado=document.getElementById(neigh);
-
           if (!visited[neigh]) {
               visited[neigh] = true;
               q.enqueue(neigh);
