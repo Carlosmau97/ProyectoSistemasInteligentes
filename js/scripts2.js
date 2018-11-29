@@ -1,3 +1,93 @@
+class QElement {
+    constructor(element, priority)
+    {
+        this.element = element;
+        this.priority = priority;
+    }
+}
+
+// PriorityQueue class
+class PriorityQueue {
+
+    // An array is used to implement priority
+    constructor()
+    {
+        this.items = [];
+    }
+
+    // functions to be implemented
+    // enqueue function to add element
+  // to the queue as per priority
+  PQenqueue(element, priority)
+  {
+      // creating object from queue element
+      var qElement = new QElement(element, priority);
+      var contain = false;
+
+      // iterating through the entire
+      // item array to add element at the
+      // correct location of the Queue
+      for (var i = 0; i < this.items.length; i++) {
+          if (this.items[i].priority > qElement.priority) {
+              // Once the correct location is found it is
+              // enqueued
+              this.items.splice(i, 0, qElement);
+              contain = true;
+              break;
+          }
+      }
+
+      // if the element have the highest priority
+      // it is added at the end of the queue
+      if (!contain) {
+          this.items.push(qElement);
+      }
+  }
+
+  PQdequeue()
+{
+  // return the dequeued element
+  // and remove it.
+  // if the queue is empty
+  // returns Underflow
+  if (this.PQisEmpty())
+      return "Underflow";
+  return this.items.shift();
+}
+PQfront()
+{
+// returns the highest priority element
+// in the Priority queue without removing it.
+if (this.PQisEmpty())
+    return "No elements in Queue";
+return this.items[0];
+}
+
+PQrear()
+{
+    // returns the lowest priorty
+    // element of the queue
+    if (this.PQisEmpty())
+        return "No elements in Queue";
+    return this.items[this.items.length - 1];
+}
+
+PQisEmpty()
+{
+// return true if the queue is empty.
+return this.items.length == 0;
+}
+PQprintPQueue()
+{
+  var str = "";
+  for (var i = 0; i < this.items.length; i++)
+      str += this.items[i].element + " ";
+  return str;
+}
+
+}//FINAL CLAS PriorityQueue
+
+
 class Queue
 {
     // Array is used to implement a Queue
@@ -119,13 +209,10 @@ bfs(startingNode, finnishNode)
     while (!q.isEmpty()){
         // get the element from the queue
         var getQueueElement = q.dequeue();
-
         // passing the current vertex to callback funtion
         //console.log(getQueueElement);
-
         // get the adjacent list for current vertex
         var get_List = this.AdjList.get(getQueueElement);
-
         // loop through the list and add the elemnet to the
         // queue if it is not processed yet
         for (var i in get_List) {
@@ -189,103 +276,67 @@ DFSUtil(vert, visited, finnishNode,startingNode)
 }
 
 
-pem(startingNode, finnishNode){
+bestFirst(startingNode, finnishNode){
   // create a visited array
   var visited = [];
-  var Distancia =[];
-  var DistanciaT=0;
   for (var i = 0; i < this.noOfVertices; i++)
-    visited[i] = false;
-
+      visited[i] = false;
 
   // Create an object for queue
-  var q = new Queue();
-
+  var pq = new PriorityQueue();
+  var distancia=0;
   // add the starting node to the queue
-  visited[startingNode] = true;
-  q.enqueue(startingNode);
 
-//Distancia Inicial
-var topStarting = parseInt(getCssProperty(startingNode, "top"), 10);
-var leftStarting= parseInt(getCssProperty(startingNode, "left"), 10);
-var topFinnish  = parseInt(getCssProperty(finnishNode, "top"), 10);
-var leftFinnish = parseInt(getCssProperty(finnishNode, "left"), 10);
-var ax = leftStarting;
-var ay = topStarting;
-var bx = leftFinnish;
-var by = topFinnish;
-var comp_horizontal = (bx-ax);
-var comp_vertical = (by-ay);
-comp_horizontal = comp_horizontal * comp_horizontal;
-comp_vertical = comp_vertical * comp_vertical;
-Distancia[neigh] = Math.sqrt(comp_horizontal + comp_vertical);
-DistanciaT=Distancia[neigh];
-console.log("DistanciaT:",DistanciaT);
-
+  pq.PQenqueue(startingNode,distancia);
+    visited[startingNode] = false;
 
   // loop until queue is element
-  while (!q.isEmpty()){
+  while (!pq.PQisEmpty()){
 
-      // get the element from the queue
-      var getQueueElement = q.dequeue();
+      var getQueueElement = pq.PQdequeue();
+      var visitado=document.getElementById(getQueueElement.element);
 
-      // passing the current vertex to callback funtion
-      //console.log(getQueueElement);
-
-      // get the adjacent list for current vertex
-      var get_List = this.AdjList.get(getQueueElement);
-
-      // loop through the list and add the elemnet to the
-      // queue if it is not processed yet
+      var get_List = this.AdjList.get(getQueueElement.element);
 
 
       for (var i in get_List) {
-        if(neigh!=finnishNode){
           var neigh = get_List[i];
-          var visitado=document.getElementById(neigh);
-          var top = parseInt(getCssProperty(neigh, "top"), 10);
-          var left= parseInt(getCssProperty(neigh, "left"), 10);
 
           if (!visited[neigh]) {
               visited[neigh] = true;
-              q.enqueue(neigh);
-              //console.log("Reccorrido:",neigh);
-              //console.log("X:",left,'Y:',top);
-            //  visitado.style.background='blue';
 
-                var ax = left;
-                var ay = top;
-                var bx = leftFinnish;
-                var by = topFinnish;
+              var topStarting = parseFloat(getCssProperty(finnishNode, "top"), 10.0000000000);
+              var leftStarting = parseFloat(getCssProperty(finnishNode, "left"), 10.0000000000);
+              var topFinnish  = parseFloat(getCssProperty(neigh, "top"), 10.0000000000);
+              var leftFinnish = parseFloat(getCssProperty(neigh, "left"), 10.0000000000);
+              distancia=euclidiana(leftStarting,topStarting,leftFinnish,topFinnish);
 
-                var comp_horizontal = (bx-ax);
-                var comp_vertical = (by-ay);
-                comp_horizontal = comp_horizontal * comp_horizontal;
-                comp_vertical = comp_vertical * comp_vertical;
-                Distancia[neigh] = Math.sqrt(comp_horizontal + comp_vertical);
-                console.log("Final",' - ', neigh,':',Distancia[neigh]);
+              pq.PQenqueue(neigh,distancia);
 
-                if(DistanciaT>Distancia[neigh]){
-                    DistanciaT=Distancia[neigh];
-                    console.log("DistanciaT:",DistanciaT);
-                    visitado.style.background='green';
-                }
+              console.log("Nodo:",neigh, "D:",distancia);
 
-
-
+              if(getQueueElement.element=="D1V3"  ||
+                 getQueueElement.element=="D1V4"  ||
+                  getQueueElement.element=="D1V6" ){
+                visitado.style.background='green';
               }
 
-          if(neigh==finnishNode || neigh==startingNode){
-            visitado.style.background='purple';
-          }
+              if(distancia<=getQueueElement.priority){
+                visitado.style.background='green';
+              }
 
         }
 
+
+          if(neigh==finnishNode){return 0;}
+
       }
+
+      if( neigh==finnishNode){
+        visitado.style.background='purple';
+      }
+
   }
-
-
-
 }
 
 }   //FIN DE LA CLASE
@@ -295,8 +346,21 @@ function getCssProperty(elmId, property){
    return window.getComputedStyle(elem,null).getPropertyValue(property);
 }
 
+function euclidiana(left1,top1,left2,top2){
+  var ax = left1;
+  var ay = top1;
+  var bx = left2;
+  var by = top2;
+  var comp_horizontal = (bx-ax);
+  var comp_vertical = (by-ay);
+  comp_horizontal = comp_horizontal * comp_horizontal;
+  comp_vertical = comp_vertical * comp_vertical;
+  Distancia= Math.sqrt(comp_horizontal + comp_vertical);3
+  return Distancia;
+}
 
-var g = new Graph(20);
+
+var g = new Graph(100);
 var vertices = [ 'P1','P2','P3','P4',
 'D1S', 'D1204', 'D1205',
 'D1206', 'D1207', 'D1208','D1209','D1210','D1211',
@@ -325,7 +389,7 @@ for (var i = 0; i < vertices.length; i++) {
 }
 
 //Conexion Pasillos
-g.addEdge('D1V6', 'P1');
+g.addEdge('P1', 'D1V6');
 g.addEdge('P1', 'P2');
 g.addEdge('P1', 'P4');
 g.addEdge('P2','D2V6');
@@ -454,5 +518,6 @@ function primeromejor(){
   var nodoSelect2=document.getElementById("last").innerHTML;
 
   console.log("primero el mejor");
-  g.pem(nodoSelect,nodoSelect2);
+  g.bestFirst(nodoSelect,nodoSelect2);
+
 }
