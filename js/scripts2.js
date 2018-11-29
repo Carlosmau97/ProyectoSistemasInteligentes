@@ -327,7 +327,8 @@ bestFirst(startingNode, finnishNode){
                 getQueueElement.element=="D4V7" ||
                 getQueueElement.element=="D4V7" ||
                 getQueueElement.element=="D2V6" ||
-                getQueueElement.element=="D2V4"
+                getQueueElement.element=="D2V4" ||
+                getQueueElement.element=="D4V9"
               ){
                 visitado.style.background='green';
               }
