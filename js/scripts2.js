@@ -352,7 +352,73 @@ bestFirst(startingNode, finnishNode){
 }
 
 AStar(startingNode,finnishNode){
+  // create a visited array
+  var visited = [];
+  for (var i = 0; i < this.noOfVertices; i++)
+      visited[i] = false;
 
+  // Create an object for queue
+  var pq = new PriorityQueue();
+  var distancia=0;
+  // add the starting node to the queue
+
+  pq.PQenqueue(startingNode,distancia);
+    visited[startingNode] = false;
+
+  // loop until queue is element
+  while (!pq.PQisEmpty()){
+
+      var getQueueElement = pq.PQdequeue();
+      var visitado=document.getElementById(getQueueElement.element);
+
+      var get_List = this.AdjList.get(getQueueElement.element);
+
+
+      for (var i in get_List) {
+          var neigh = get_List[i];
+
+          if (!visited[neigh]) {
+              visited[neigh] = true;
+
+              var topStarting = parseFloat(getCssProperty(finnishNode, "top"), 10.0000000000);
+              var leftStarting = parseFloat(getCssProperty(finnishNode, "left"), 10.0000000000);
+              var topFinnish  = parseFloat(getCssProperty(neigh, "top"), 10.0000000000);
+              var leftFinnish = parseFloat(getCssProperty(neigh, "left"), 10.0000000000);
+              distancia=euclidiana(leftStarting,topStarting,leftFinnish,topFinnish);
+
+              pq.PQenqueue(neigh,distancia);
+
+              console.log("Nodo:",neigh, "D:",distancia);
+
+              if(getQueueElement.element=="D1V3"  ||
+                getQueueElement.element=="D1V4"  ||
+                getQueueElement.element=="D1V6" ||
+                getQueueElement.element=="D4V7" ||
+                getQueueElement.element=="D4V7" ||
+                getQueueElement.element=="D2V6" ||
+                getQueueElement.element=="D2V4" ||
+                getQueueElement.element=="D4V9"
+              ){
+                //visitado.style.background='green';
+                imprimir(visitado.style.background);
+              }
+
+              if(distancia<=getQueueElement.priority){
+                visitado.style.background='green';
+              }
+
+        }
+
+
+          if(neigh==finnishNode){return 0;}
+
+      }
+
+      if( neigh==finnishNode){
+        visitado.style.background='purple';
+      }
+
+  }
 }
 
 }   //FIN DE LA CLASE
