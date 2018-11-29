@@ -291,28 +291,17 @@ bestFirst(startingNode, finnishNode){
     visited[startingNode] = false;
 
   // loop until queue is element
-<<<<<<< HEAD
   while (!pq.PQisEmpty()){
 
       var getQueueElement = pq.PQdequeue();
       var visitado=document.getElementById(getQueueElement.element);
-=======
-  while (!q.isEmpty()){
-
-      // get the element from the queue
-      var getQueueElement = q.dequeue();
->>>>>>> e64fcdf8e2f20348a43e7aad4761dc305f614d17
 
       var get_List = this.AdjList.get(getQueueElement.element);
 
 
       for (var i in get_List) {
           var neigh = get_List[i];
-<<<<<<< HEAD
 
-=======
-          var visitado=document.getElementById(neigh);
->>>>>>> e64fcdf8e2f20348a43e7aad4761dc305f614d17
           if (!visited[neigh]) {
               visited[neigh] = true;
 
@@ -503,8 +492,6 @@ g.addEdge('D4V1','D4V0');
 g.addEdge('D4V0','D4213');
 g.addEdge('D4V0','D4209');
 g.addEdge('D4V0','D4212');
-g.addEdge('D4V2','D4V0');// agregue este
-g.addEdge('D4V3','D4V5');// agregue este
 
 g.printGraph();
 
