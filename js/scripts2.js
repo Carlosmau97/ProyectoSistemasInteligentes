@@ -216,6 +216,7 @@ bfs(startingNode, finnishNode)
         // loop through the list and add the elemnet to the
         // queue if it is not processed yet
         for (var i in get_List) {
+          if(neigh!=finnishNode){
             var neigh = get_List[i];
             var visitado=document.getElementById(neigh);
 
@@ -231,10 +232,12 @@ bfs(startingNode, finnishNode)
               visitado.style.background='purple';
             }
 
-            if(neigh==finnishNode){return 0;}
-
+            //if(neigh==finnishNode){return 0;}
         }
     }
+  }
+
+    this.bestFirst(startingNode,finnishNode);
 }
 dfs(startingNode, finnishNode)
 {
@@ -244,7 +247,7 @@ dfs(startingNode, finnishNode)
         visited[i] = false;
 
     this.DFSUtil(startingNode, visited, finnishNode);
-
+    this.bestFirst(startingNode,finnishNode);
 
 }
 
@@ -319,8 +322,13 @@ bestFirst(startingNode, finnishNode){
               console.log("Nodo:",neigh, "D:",distancia);
 
               if(getQueueElement.element=="D1V3"  ||
-                 getQueueElement.element=="D1V4"  ||
-                  getQueueElement.element=="D1V6" ){
+                getQueueElement.element=="D1V4"  ||
+                getQueueElement.element=="D1V6" ||
+                getQueueElement.element=="D4V7" ||
+                getQueueElement.element=="D4V7" ||
+                getQueueElement.element=="D2V6" ||
+                getQueueElement.element=="D2V4"
+              ){
                 visitado.style.background='green';
               }
 
@@ -464,7 +472,6 @@ g.addEdge('D3V1','D3211');
 g.addEdge('D3V1','D3V0');
 g.addEdge('D3V0','D3210');
 g.addEdge('D3V5','D3V6');
-g.addEdge('D3V6','D3208');
 g.addEdge('D3V6','D3205');
 g.addEdge('D3V6','D3206');
 g.addEdge('D3V6','D3V7');
@@ -499,8 +506,6 @@ g.addEdge('D4V1','D4V0');
 g.addEdge('D4V0','D4213');
 g.addEdge('D4V0','D4209');
 g.addEdge('D4V0','D4212');
-g.addEdge('D4V3','D4V5');//agregue este
-g.addEdge('D4V0','D4V2');//agregue este
 
 g.printGraph();
 
