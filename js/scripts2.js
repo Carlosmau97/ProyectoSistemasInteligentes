@@ -243,35 +243,38 @@ dfs(startingNode, finnishNode)
     for (var i = 0; i < this.noOfVertices; i++)
         visited[i] = false;
 
-    this.DFSUtil(startingNode, visited, finnishNode,startingNode);
+    this.DFSUtil(startingNode, visited, finnishNode);
 
 
 }
 
 // Recursive function which process and explore
 // all the adjacent vertex of the vertex with which it is called
-DFSUtil(vert, visited, finnishNode,startingNode)
+DFSUtil(vert, visited, finnishNode)
 {
+
+
     visited[vert] = true;
-    console.log(vert);
-    var visitado=document.getElementById(vert);
+    console.log("Vert:",vert,"Finish:",finnishNode);
 
       var get_neighbours = this.AdjList.get(vert);
 
       for (var i in get_neighbours) {
           var get_elem = get_neighbours[i];
-          if (!visited[get_elem] && get_elem!=finnishNode){
-              this.DFSUtil(get_elem, visited,finnishNode,startingNode);
-          }
-          else{
-            visitado.style.background='blue';
 
-            if(get_elem==finnishNode || get_elem==startingNode){
-              visitado.style.background='purple';
+          if (!visited[get_elem] ){
+            var visitado=document.getElementById(get_elem);
+            visitado.style.background="blue";
+            if(get_elem!=finnishNode){
+              this.DFSUtil(get_elem, visited,finnishNode);
             }
-
-            return 0;
+            else{
+              visitado.style.background="purple";
+              console.log(get_elem,"Aqui es igual");
+              return 0;
+            }
           }
+
         }
 }
 
@@ -337,6 +340,10 @@ bestFirst(startingNode, finnishNode){
       }
 
   }
+}
+
+AStar(startingNode,finnishNode){
+
 }
 
 }   //FIN DE LA CLASE
@@ -519,5 +526,14 @@ function primeromejor(){
 
   console.log("primero el mejor");
   g.bestFirst(nodoSelect,nodoSelect2);
+
+}
+
+function Aestrella(){
+  var nodoSelect=document.getElementById("first").innerHTML;
+  var nodoSelect2=document.getElementById("last").innerHTML;
+
+  console.log("A*");
+  g.AStar(nodoSelect,nodoSelect2);
 
 }
