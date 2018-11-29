@@ -499,6 +499,8 @@ g.addEdge('D4V1','D4V0');
 g.addEdge('D4V0','D4213');
 g.addEdge('D4V0','D4209');
 g.addEdge('D4V0','D4212');
+g.addEdge('D4V3','D4V5');//agregue este
+g.addEdge('D4V0','D4V2');//agregue este
 
 g.printGraph();
 
