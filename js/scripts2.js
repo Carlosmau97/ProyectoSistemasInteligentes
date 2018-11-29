@@ -287,9 +287,12 @@ bestFirst(startingNode, finnishNode){
   var distancia=0;
   // add the starting node to the queue
 
+<<<<<<< HEAD
   pq.PQenqueue(startingNode,distancia);
     visited[startingNode] = false;
 
+=======
+>>>>>>> e64fcdf8e2f20348a43e7aad4761dc305f614d17
   // loop until queue is element
   while (!pq.PQisEmpty()){
 
@@ -304,6 +307,15 @@ bestFirst(startingNode, finnishNode){
 
           if (!visited[neigh]) {
               visited[neigh] = true;
+<<<<<<< HEAD
+=======
+
+              q.enqueue(neigh);
+
+              //console.log("Reccorrido:",neigh);
+              //console.log("X:",left,'Y:',top);
+            //  visitado.style.background='blue';
+>>>>>>> e64fcdf8e2f20348a43e7aad4761dc305f614d17
 
               var topStarting = parseFloat(getCssProperty(finnishNode, "top"), 10.0000000000);
               var leftStarting = parseFloat(getCssProperty(finnishNode, "left"), 10.0000000000);
@@ -311,6 +323,7 @@ bestFirst(startingNode, finnishNode){
               var leftFinnish = parseFloat(getCssProperty(neigh, "left"), 10.0000000000);
               distancia=euclidiana(leftStarting,topStarting,leftFinnish,topFinnish);
 
+<<<<<<< HEAD
               pq.PQenqueue(neigh,distancia);
 
               console.log("Nodo:",neigh, "D:",distancia);
@@ -319,6 +332,8 @@ bestFirst(startingNode, finnishNode){
                  getQueueElement.element=="D1V4"  ||
                   getQueueElement.element=="D1V6" ){
                 visitado.style.background='green';
+=======
+>>>>>>> e64fcdf8e2f20348a43e7aad4761dc305f614d17
               }
 
               if(distancia<=getQueueElement.priority){
@@ -492,6 +507,9 @@ g.addEdge('D4V1','D4V0');
 g.addEdge('D4V0','D4213');
 g.addEdge('D4V0','D4209');
 g.addEdge('D4V0','D4212');
+g.addEdge('D4V2','D4V0');// agregue este
+g.addEdge('D4V3','D4V5');// agregue este
+
 
 g.printGraph();
 
